@@ -86,4 +86,144 @@ sudo apt update && sudo apt install -y ulauncher
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
 deb http://apt.insync.io/ubuntu groovy non-free contrib
 sudo apt update && sudo apt install insync insync-dolphin insync-nautilus -y
+## FUSUMA
+sudo gpasswd -a $USER input
+newgrp input
+sudo apt install -y libinput-tools ruby xdotool wmctrl
+sudo gem install fusuma
+mkdir -p ~/.config/fusuma       
+touch ~/.config/fusuma/cswipe:
+  3:
+    left:
+      command: 'xdotool key alt+Right' # History forward
+    right:
+      command: 'xdotool key alt+Left' # History back
+    up:
+      command: 'xdotool key ctrl+t' # Open new tab
+      keypress:
+        LEFTSHIFT:
+          command: 'xdotool key --clearmodifiers ctrl+shift+t' # Open last closed tab
+    down:
+      command: 'xdotool key ctrl+w' # Close tab
+  4:
+    left:
+      workspace: 'next' # Switch to next workspace
+      keypress:
+        LEFTSHIFT: 
+          window: 'next' # Move window to next workspace
+        LEFTMETA:
+          command: 'xdotool key --clearmodifiers super+ctrl+Left' # Move window to left side
+    right:
+      workspace: 'prev' # Switch to previous workspace
+      keypress:
+        LEFTSHIFT: 
+          window: 'prev' # Move window to previous workspace
+        LEFTMETA:
+          command: 'xdotool key --clearmodifiers super+ctrl+Right'  # Move window to right side
+    up:
+      command: 'xdotool key Control_L+F10' # Workspace overview
+      keypress:
+        LEFTMETA:
+          window:
+            maximized: 'toggle' # Toggle Maximize/Unmaximize Window
+    down:
+      command: 'xdotool key Shift_L+Alt_L+Tab' #aaaaa
+      keypress:
+        LEFTMETA:
+          window: 'close' # Close window
+
+pinch:
+  2:
+    in:
+      command: 'xdotool keydown ctrl click 4 keyup ctrl' # Zoom in
+    out:
+      command: 'xdotool keydown ctrl click 5 keyup ctrl' # Zoom out
+  4:
+    in:
+      command: 'xdotool key super+a' # Window overview
+    out:
+      command: 'xdotool key super+s' # Workspace overview
+
+rotate:
+  3:
+    clockwise:
+      command: 'xdotool key XF86MonBrightnessUp' # Brightness up
+    counterclockwise:
+      command: 'xdotool key XF86MonBrightnessDown' # Brightness down
+
+plugin: 
+  inputs:
+    libinput_command_input: # options for lib/plugin/inputs/libinput_command_input
+      enable-tap: true # click to tap
+      enable-dwt: true # disable tap while typing
+      show-keycodes: true # https://github.com/iberianpig/fusuma-plugin-keypress#add-show-keycode-optiononfig.yml 
+sudo gem install fusuma-plugin-wmctrl
+sudo gem install fusuma-plugin-keypress
+cat > ~/.config/fusuma/config.yml << EOF
+swipe:
+  3:
+    left:
+      command: 'xdotool key alt+Right' # History forward
+    right:
+      command: 'xdotool key alt+Left' # History back
+    up:
+      command: 'xdotool key ctrl+t' # Open new tab
+      keypress:
+        LEFTSHIFT:
+          command: 'xdotool key --clearmodifiers ctrl+shift+t' # Open last closed tab
+    down:
+      command: 'xdotool key ctrl+w' # Close tab
+  4:
+    left:
+      workspace: 'next' # Switch to next workspace
+      keypress:
+        LEFTSHIFT: 
+          window: 'next' # Move window to next workspace
+        LEFTMETA:
+          command: 'xdotool key --clearmodifiers super+ctrl+Left' # Move window to left side
+    right:
+      workspace: 'prev' # Switch to previous workspace
+      keypress:
+        LEFTSHIFT: 
+          window: 'prev' # Move window to previous workspace
+        LEFTMETA:
+          command: 'xdotool key --clearmodifiers super+ctrl+Right'  # Move window to right side
+    up:
+      command: 'xdotool key Control_L+F10' # Workspace overview
+      keypress:
+        LEFTMETA:
+          window:
+            maximized: 'toggle' # Toggle Maximize/Unmaximize Window
+    down:
+      command: 'xdotool key Shift_L+Alt_L+Tab' #aaaaa
+      keypress:
+        LEFTMETA:
+          window: 'close' # Close window
+
+pinch:
+  2:
+    in:
+      command: 'xdotool keydown ctrl click 4 keyup ctrl' # Zoom in
+    out:
+      command: 'xdotool keydown ctrl click 5 keyup ctrl' # Zoom out
+  4:
+    in:
+      command: 'xdotool key super+a' # Window overview
+    out:
+      command: 'xdotool key super+s' # Workspace overview
+
+rotate:
+  3:
+    clockwise:
+      command: 'xdotool key XF86MonBrightnessUp' # Brightness up
+    counterclockwise:
+      command: 'xdotool key XF86MonBrightnessDown' # Brightness down
+
+plugin: 
+  inputs:
+    libinput_command_input: # options for lib/plugin/inputs/libinput_command_input
+      enable-tap: true # click to tap
+      enable-dwt: true # disable tap while typing
+      show-keycodes: true # https://github.com/iberianpig/fusuma-plugin-keypress#add-show-keycode-option
+EOF
 
