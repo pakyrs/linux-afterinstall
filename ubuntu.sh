@@ -77,8 +77,8 @@ sudo apt install latte-dock -y
 sudo snap install bitwarden 
 sudo snap install spotify 
 sudo snap install moonlight  
-sudo snap install authy –-beta 
-sudo snap install code –-classic 
+sudo snap install authy --beta 
+sudo snap install code --classic 
 sudo snap install onlyoffice-desktopeditors 
 sudo snap install powershell-preview --classic 
 # INSTALL deb files from directory #
