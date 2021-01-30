@@ -14,6 +14,7 @@ sudo apt install -y cmatrix figlet hollywood
 # REMOVE some unneeded apps #
 sudo apt-get remove gnome-games gnome-games-common empathy
 # INSTALL new apps #
+sudo DEBIAN_FRONTEND=noninteractive apt -yq install wireshark
 sudo apt install vlc -y
 sudo apt install remmina -y
 sudo apt install terminator -y
@@ -21,7 +22,6 @@ sudo apt install gimp -y
 sudo apt install virt-manager -y
 sudo apt install virtualbox -y
 sudo apt install bleachbit -y
-sudo apt install wireshark  -y #should non super-user capture packets?
 sudo apt install qbittorrent  -y
 sudo apt install ettercap-graphical -y 
 sudo apt install filezilla -y
