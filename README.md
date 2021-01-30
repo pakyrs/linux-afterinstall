@@ -1,9 +1,7 @@
 # linux_apps
 Automation script for linux after install
 
-apt update && apt upgrade -y
-
-apt install git
+sudo apt update && sudo apt upgrade -y && sudo apt install git
 
 cd ~/Downloads
 
