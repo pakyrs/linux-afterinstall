@@ -57,7 +57,7 @@ sudo apt install ~/Downloads/parsec-linux.deb -y
 # UNINSTALL APPS that are not needed
 sudo apt remove --purge -y libreoffice*
 sudo apt clean
-sudo apt autoremove
+sudo apt autoremove -y
 # games
 ## Bomgar
 ## Inevidesk
