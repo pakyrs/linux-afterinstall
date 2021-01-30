@@ -10,7 +10,7 @@ pwgen dnsutils gdebi neofetch gparted ubuntu-restricted-extras
 sudo apt install fonts-powerline -y 
 sudo apt install ttf-mscorefonts-installer -y #accept eula prompt?
 #Shenanigans:
-sudo apt install -y cmatrix  
+sudo apt install -y cmatrix figlet hollywood
 # REMOVE some unneeded apps #
 sudo apt-get remove gnome-games gnome-games-common empathy
 # INSTALL new apps #
