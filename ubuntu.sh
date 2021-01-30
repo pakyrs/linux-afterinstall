@@ -5,53 +5,12 @@ sudo apt upgrade -y
 #Desktop Environment
 sudo apt install -y kde-standard #automate sddm prompt?
 #Base tools:
-sudo apt install net-tools -y
-sudo apt install gnupg -y
-sudo apt install tldr -y
-sudo apt install curl -y
-sudo apt install git -y
-sudo apt install lsb-release -y
-sudo apt install lsb-base -y
-sudo apt install lsb-core -y 
-sudo apt install openssh -y
-sudo apt install htop -y
-sudo apt install wget -y
-sudo apt install vim-enhanced -y
-sudo apt install nmap -y
-sudo apt install ufw -y
-sudo apt install gufw -y
+sudo apt install -y net-tools gnupg tldr curl wget git lsb-release lsb-base lsb-core openssh htop vim nmap ufw gufw sshuttle tmate screen 
+pwgen dnsutils gdebi neofetch gparted ubuntu-restricted-extras
 sudo apt install fonts-powerline -y 
 sudo apt install ttf-mscorefonts-installer -y #accept eula prompt?
-sudo apt install sshuttle -y
-sudo apt install tmate -y
-sudo apt install magic-wormhole -y
-sudo apt install tree -y
-sudo apt install screen -y
-sudo apt install pwgen -y
-sudo apt install dnsutils -y
-sudo apt install gdebi -y
-sudo apt install neofetch -y 
-sudo apt install gparted -y
-sudo apt install ubuntu-restricted-extras -y
 #Shenanigans:
-sudo apt install cmatrix  
-# add custom sources and PPA's #
-sudo sh -c "echo '## PPA ###' >> /etc/apt/sources.list"
-# Balena etcher
-echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
-sudo apt update && sudo apt install balena-etcher-electron -y
-# vivaldi ERROR GPG KEY
-wget -qO- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo apt-key add -
-sudo add-apt-repository 'deb https://repo.vivaldi.com/archive/deb/ stable main'
-sudo apt update && sudo apt install vivaldi-stable -y
-# Ulauncher NEED TO PRESS ENTER
-sudo add-apt-repository ppa:agornostal/ulauncher
-sudo apt update && sudo apt install ulauncher -y
-# Insync
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
-deb http://apt.insync.io/ubuntu groovy non-free contrib
-sudo apt update && sudo apt install insync insync-dolphin insync-nautilus -y
+sudo apt install -y cmatrix  
 # REMOVE some unneeded apps #
 sudo apt-get remove gnome-games gnome-games-common empathy
 # INSTALL new apps #
@@ -96,7 +55,9 @@ sudo apt install ~/Downloads/zoom_amd64.deb -y
 wget --show-progress https://builds.parsecgaming.com/package/parsec-linux.deb
 sudo apt install ~/Downloads/parsec-linux.deb -y
 # UNINSTALL APPS that are not needed
-# libreoffice
+sudo apt remove --purge -y libreoffice*
+sudo apt clean
+sudo apt autoremove
 # games
 ## Bomgar
 ## Inevidesk
@@ -106,8 +67,23 @@ sudo apt install ~/Downloads/parsec-linux.deb -y
 ## Microsoft Teams
 ##https://go.microsoft.com/fwlink/p/?LinkID=2112886&clcid=0x409&culture=en-us&country=US
 ## UPDATE GRUB to allow ZFS rollback
-sudo vim /etc/default/grub
-sed "GRUB_TIMEOUT_STYLE" menu
-sed GRUB_TIMEOUT=5
-sudo update grub
+sudo sed -i 's/GRUB_TIMEOUT=[0-9]*/GRUB_TIMEOUT=5/g' /etc/default/grub
+sudo sed -i 's/GRUB_TIMEOUT_STYLE=hidden*/GRUB_TIMEOUT_STYLE=menu/g' /etc/default/grub
+sudo update-grub
+# add custom sources and PPA's #
+# Balena etcher
+echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+sudo apt update && sudo apt install balena-etcher-electron -y
+# vivaldi
+wget -qO- http://repo.vivaldi.com/stable/linux_signing_key.pub | sudo apt-key add -
+sudo add-apt-repository "deb http://repo.vivaldi.com/stable/deb/ stable main"
+sudo apt install -y vivaldi-stable
+# Ulauncher NEED TO PRESS ENTER
+sudo add-apt-repository ppa:agornostal/ulauncher
+sudo apt update && sudo apt install -y ulauncher
+# Insync
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
+deb http://apt.insync.io/ubuntu groovy non-free contrib
+sudo apt update && sudo apt install insync insync-dolphin insync-nautilus -y
 
