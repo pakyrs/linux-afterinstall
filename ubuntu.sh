@@ -86,7 +86,7 @@ sudo apt update && sudo apt install -y ulauncher
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ACCAF35C
 deb http://apt.insync.io/ubuntu groovy non-free contrib
 sudo apt update && sudo apt install insync insync-dolphin insync-nautilus -y
-## FUSUMA
+## FUSUMA MACOSX GESTURES
 sudo gpasswd -a $USER input
 newgrp input
 sudo apt install -y libinput-tools ruby xdotool wmctrl
@@ -94,8 +94,8 @@ sudo gem install fusuma
 sudo gem install fusuma-plugin-wmctrl
 sudo gem install fusuma-plugin-keypress
 mkdir -p ~/.config/fusuma       
-touch ~/.config/fusuma/config1.yml
-cat > ~/.config/fusuma/config1.yml << EOF
+touch ~/.config/fusuma/config.yml
+cat > ~/.config/fusuma/config.yml << EOF
 swipe:
   3:
     left:
