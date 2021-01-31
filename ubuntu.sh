@@ -10,8 +10,8 @@ sudo zsysctl service reload
 #Desktop Environment
 sudo apt install -y kde-standard #automate sddm prompt?
 #Base tools:
-sudo apt install -y net-tools gnupg tldr curl wget git lsb-release lsb-base lsb-core openssh htop vim nmap ufw gufw sshuttle tmate screen 
-pwgen dnsutils gdebi neofetch gparted ubuntu-restricted-extras
+sudo apt install -y net-tools gnupg tldr curl wget git lsb-release lsb-base lsb-core htop vim nmap ufw gufw sshuttle tmate screen pwgen dnsutils gdebi neofetch gparted ubuntu-restricted-extras
+#openssh
 sudo apt install fonts-powerline -y 
 sudo apt install ttf-mscorefonts-installer -y #accept eula prompt?
 #Shenanigans:
