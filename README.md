@@ -14,7 +14,9 @@ sudo chmod +x ubuntu.sh
 ./ubuntu.sh 2> errors.txt
 
 
-#Zsys garbace collection
+
+
+Zsys garbace collection
 
 git clone https://github.com/ubuntu/zsys
 
