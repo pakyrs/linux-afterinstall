@@ -15,7 +15,10 @@ sudo chmod +x ubuntu.sh
 
 
 #Zsys garbace collection
+
 git clone https://github.com/ubuntu/zsys
+
 sudo cp ~/Downloads/zsys/internal/config/zsys.conf /etc/
+
 sudo zsysctl service reload
 
