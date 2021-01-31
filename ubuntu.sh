@@ -2,6 +2,11 @@
 # update & upgrade #
 sudo apt update
 sudo apt upgrade -y
+#Zsys Garbage collection policy
+cd ~/Downloads
+git clone https://github.com/ubuntu/zsys
+sudo cp ~/Downloads/zsys/internal/config/zsys.conf /etc/
+sudo zsysctl service reload
 #Desktop Environment
 sudo apt install -y kde-standard #automate sddm prompt?
 #Base tools:
@@ -11,8 +16,6 @@ sudo apt install fonts-powerline -y
 sudo apt install ttf-mscorefonts-installer -y #accept eula prompt?
 #Shenanigans:
 sudo apt install -y cmatrix figlet hollywood
-# REMOVE some unneeded apps #
-sudo apt-get remove gnome-games gnome-games-common empathy
 # INSTALL new apps #
 sudo DEBIAN_FRONTEND=noninteractive apt -yq install wireshark
 sudo apt install vlc -y
