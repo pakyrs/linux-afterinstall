@@ -24,3 +24,5 @@ sudo cp ~/Downloads/zsys/internal/config/zsys.conf /etc/
 
 sudo zsysctl service reload
 
+https://discourse.ubuntu.com/t/zfs-focus-on-ubuntu-20-04-lts-blog-posts/16355
+
