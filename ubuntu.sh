@@ -56,6 +56,12 @@ wget --show-progress https://builds.parsecgaming.com/package/parsec-linux.deb
 sudo apt install ~/Downloads/parsec-linux.deb -y
 # UNINSTALL APPS that are not needed
 sudo apt remove --purge -y libreoffice*
+sudo apt remove --purge -y thunderbird*
+sudo apt remove --purge -y rhythmbox*
+sudo apt remove --purge -y gnome-mahjongg
+sudo apt remove --purge -y aisleriot
+sudo apt remove --purge -y gnome-mines
+sudo apt remove --purge -y gnome-todo
 sudo apt clean
 sudo apt autoremove -y
 # games
